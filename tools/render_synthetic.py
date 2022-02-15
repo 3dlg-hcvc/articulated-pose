@@ -222,7 +222,7 @@ def render_data(data_root, name_obj, cur_urdf, args=None, cam_dis=1, urdf_file='
                     cv2.imwrite(depth_img_name, np_depth_arr)
                     cv2.imwrite(mask_name, np_mask_arr)
                     hf = h5py.File(depth_name, 'w')
-                    hf.create_dataset('data', data=depth_to_save)
+                    hf.create_dataset('data', data=depth_raw)
                 yml_dict['frame_{}'.format(img_id)] = OrderedDict( [ ('obj', joint_pos),
                                                   ('viewMat', list(viewMatrix)),
                                                   ('projMat', list(projectionMatrix))
